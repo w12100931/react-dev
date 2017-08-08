@@ -8,7 +8,7 @@
 # Pull base image
 FROM node:6.11.2-slim
 
-MAINTAINER Chung-Lin Wu
+MAINTAINER Chung-Lin Wu(w12100931@gmail.com)
 
 # Install create-react-app
 RUN npm install -g create-react-app
@@ -21,8 +21,8 @@ RUN cd my-app
 RUN npm install
 
 # Install redux
-RUN npm install redux
-RUN npm install react-redux
+RUN npm install -save redux
+RUN npm install -save react-redux
 
 # Prepare app directory
 WORKDIR /my-app
@@ -30,7 +30,7 @@ WORKDIR /my-app
 # add `/my-app/node_modules/.bin` to $PATH
 ENV PATH /my-app/node_modules/.bin:$PATH
 
-VOLUME ["/my-app"]
+ADD . /my-app/
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
