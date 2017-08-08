@@ -16,6 +16,14 @@ RUN npm install -g create-react-app
 # Create a react template
 RUN create-react-app my-app
 
+# Install dependencies
+RUN cd my-app
+RUN npm install
+
+# Install redux
+RUN npm install redux
+RUN npm install react-redux
+
 # Prepare app directory
 WORKDIR /my-app
 
