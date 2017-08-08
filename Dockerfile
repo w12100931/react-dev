@@ -10,18 +10,20 @@ FROM node:6.11.2-slim
 
 MAINTAINER Chung-Lin Wu
 
+# Install create-react-app
+RUN npm install -g create-react-app
+
+# Create a react template
+RUN create-react-app my-app
+
 # Prepare app directory
-RUN mkdir -p /src
-WORKDIR /src
+WORKDIR /my-app
 
-# add `/src/node_modules/.bin` to $PATH
-ENV PATH /src/node_modules/.bin:$PATH
+# add `/my-app/node_modules/.bin` to $PATH
+ENV PATH /my-app/node_modules/.bin:$PATH
 
-# Install dependencies
-COPY package.json /src
-RUN npm install --silent
 
-ADD . /src
+ADD . /my-app
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
