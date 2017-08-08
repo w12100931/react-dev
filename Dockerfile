@@ -22,8 +22,7 @@ WORKDIR /my-app
 # add `/my-app/node_modules/.bin` to $PATH
 ENV PATH /my-app/node_modules/.bin:$PATH
 
-
-ADD . /my-app
+VOLUME ["/my-app"]
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
