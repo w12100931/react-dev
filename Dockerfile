@@ -26,8 +26,5 @@ RUN npm install -save react-redux
 # Prepare app directory
 WORKDIR /my-app
 
-# Mount a volume
-VOLUME /my-app
-
 EXPOSE 3000
 CMD [ "npm", "start" ]
