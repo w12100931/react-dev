@@ -34,4 +34,6 @@ ADD . /my-app
 VOLUME /my-app
 
 EXPOSE 3000
-CMD [ "npm", "start" ]
+
+ADD run.sh /run.sh
+ENTRYPOINT ["/run.sh"]
