@@ -27,13 +27,7 @@ RUN npm install -save react-redux
 # Prepare app directory
 WORKDIR /my-app
 
-# add `/my-app/node_modules/.bin` to $PATH
-ENV PATH /my-app/node_modules/.bin:$PATH
-
-ADD . /my-app
-VOLUME /my-app
+VOLUME /my-app/src
 
 EXPOSE 3000
-
-ADD run.sh /run.sh
-ENTRYPOINT ["/run.sh"]
+CMD [ "npm", "start" ]
