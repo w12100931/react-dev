@@ -6,9 +6,17 @@
 #
 
 # Pull base image
-FROM node:6.11.2-slim
 
 MAINTAINER Chung-Lin Wu(w12100931@gmail.com)
+
+FROM node:6.11.2-slim
+
+ARG user=react
+ARG group=react
+ARG uid=1000
+ARG gid=1000
+
+ENV APP_ROOT /my-app
 
 # Install create-react-app
 RUN npm install -g create-react-app
@@ -27,7 +35,14 @@ RUN npm install -save react-redux
 # Prepare app directory
 WORKDIR /my-app
 
-VOLUME /my-app/src
+# Mount a volume
+RUN groupadd -g ${gid} ${group} \
+    && useradd -d "$APP_ROOT" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
+
+VOLUME $APP_ROOT
 
 EXPOSE 3000
+
+USER ${user}
+
 CMD [ "npm", "start" ]
