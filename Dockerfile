@@ -6,10 +6,9 @@
 #
 
 # Pull base image
+FROM node:6.11.2-slim
 
 MAINTAINER Chung-Lin Wu(w12100931@gmail.com)
-
-FROM node:6.11.2-slim
 
 ARG user=react
 ARG group=react
