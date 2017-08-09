@@ -9,9 +9,6 @@ FROM node:6.11.2-slim
 
 MAINTAINER Chung-Lin Wu(w12100931@gmail.com)
 
-# Mount a volume
-VOLUME /my-app
-
 # Install create-react-app
 RUN npm install -g create-react-app
 
@@ -28,6 +25,9 @@ RUN npm install -save react-redux
 
 # Prepare app directory
 WORKDIR /my-app
+
+# Mount a volume
+VOLUME /my-app
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
