@@ -9,10 +9,14 @@ FROM node:6.11.2-slim
 
 MAINTAINER Chung-Lin Wu(w12100931@gmail.com)
 
+# Mount a volume
+VOLUME /var/my-app
+
 # Install create-react-app
 RUN npm install -g create-react-app
 
 # Create a react template
+RUN cd var
 RUN create-react-app my-app
 
 # Install dependencies
@@ -24,7 +28,7 @@ RUN npm install -save redux
 RUN npm install -save react-redux
 
 # Prepare app directory
-WORKDIR /my-app
+WORKDIR /var/my-app
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
