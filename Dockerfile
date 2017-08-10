@@ -10,19 +10,16 @@ FROM node:6.11.2-slim
 MAINTAINER Chung-Lin Wu(w12100931@gmail.com)
 
 # Install create-react-app
-RUN npm install -g create-react-app
-
 # Create a react template
-RUN cd var
-RUN create-react-app my-app
-
 # Install dependencies
-RUN cd my-app
-RUN npm install
-
 # Install redux
-RUN npm install -save redux
-RUN npm install -save react-redux
+RUN npm install -g create-react-app \
+    && cd var \
+	&& create-react-app my-app \
+	&& cd my-app \
+	&& npm install \
+	&& npm install -save redux \
+	&& npm install -save react-redux \
 
 # Prepare app directory
 WORKDIR /var/my-app
