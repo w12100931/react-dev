@@ -7,8 +7,9 @@ fi
 
 cd /var/my-app
 
-npm install
-npm install -save redux
-npm install -save react-redux
+yarn
 
-npm start
+yarn add redux react-redux
+yarn add redux-devtools --save-dev
+
+yarn run start
