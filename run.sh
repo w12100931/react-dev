@@ -9,7 +9,6 @@ cd /var/my-app
 
 yarn
 
-yarn add redux react-redux
-yarn add redux-devtools --save-dev
+yarn add redux react-redux --save
 
 yarn run start
