@@ -17,7 +17,7 @@ COPY run.sh /
 RUN chmod +x run.sh
 
 # Mount a volume
-VOLUME /var
+VOLUME /app
 
 EXPOSE 3000
 CMD /run.sh
