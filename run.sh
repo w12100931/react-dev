@@ -1,14 +1,9 @@
 #!/bin/bash
-
-if [ ! -d /var/my-app ]; then
-  cd /var
+if [ ! -d /app/my-app ]; then
+  cd /app
   create-react-app my-app
 fi
 
-cd /var/my-app
-
+cd /app/my-app
 yarn
-
-yarn add redux react-redux --save
-
 yarn run start
