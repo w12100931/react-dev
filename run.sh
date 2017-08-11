@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd var
-
 if [ ! -d /var/my-app ]; then
   cd /var
   create-react-app my-app
