@@ -13,11 +13,15 @@ MAINTAINER Chung-Lin Wu(w12100931@gmail.com)
 RUN npm install -g create-react-app \
   && create-react-app my-app \
   && cd my-app \
+  && npm install
   && npm install redux --save \
   && npm install react-redux --save
 
 # Prepare app directory
 WORKDIR /my-app
+
+# Mount a volume
+VOLUME /my-app
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
