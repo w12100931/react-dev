@@ -5,7 +5,7 @@
 #
 
 # Pull base image
-FROM node:6.11.2-slim
+FROM node:latest
 
 MAINTAINER Chung-Lin Wu(w12100931@gmail.com)
 
