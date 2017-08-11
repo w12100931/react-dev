@@ -1,10 +1,12 @@
 #!/bin/bash
 
-if [ ! -d /$APP_NAME ]; then
-  create-react-app $APP_NAME
+cd var
+
+if [ ! -d /my-app ]; then
+  create-react-app my-app
 fi
 
-cd /$APP_NAME
+cd my-app
 
 npm install
 npm install -save redux
