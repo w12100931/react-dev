@@ -13,7 +13,7 @@ MAINTAINER Chung-Lin Wu(w12100931@gmail.com)
 RUN npm install -g create-react-app \
   && create-react-app my-app \
   && cd my-app \
-  && npm install redux --save
+  && npm install redux --save \
   && npm install react-redux --save
 
 # Prepare app directory
