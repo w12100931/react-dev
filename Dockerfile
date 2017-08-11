@@ -9,15 +9,15 @@ FROM node:latest
 
 MAINTAINER Chung-Lin Wu(w12100931@gmail.com)
 
-# Install create-react-app
-RUN npm install -g create-react-app
+# Install create-react-app and redux
+RUN npm install -g create-react-app \
+  && create-react-app my-app \
+  && cd my-app \
+  && npm install redux --save
+  && npm install react-redux --save
 
-# Copy shell script
-COPY run.sh /
-RUN chmod +x run.sh
-
-# Mount a volume
-VOLUME /app
+# Prepare app directory
+WORKDIR /my-app
 
 EXPOSE 3000
-CMD /run.sh
+CMD [ "npm", "start" ]
