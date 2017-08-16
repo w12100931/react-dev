@@ -16,7 +16,7 @@ RUN npm install -g create-react-app \
   && npm install \
   && npm install redux --save \
   && npm install react-redux --save \
-  && usermod -u 1000 www-data \
+  && usermod -u 1001 www-data \
   && chown -Rf www-data.www-data /my-app \
   && chmod +x /my-app
 
