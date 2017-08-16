@@ -16,6 +16,7 @@ RUN npm install -g create-react-app \
   && npm install \
   && npm install redux --save \
   && npm install react-redux --save
+RUN chmod +x /my-app
 
 # Prepare app directory
 WORKDIR /my-app
