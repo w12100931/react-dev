@@ -15,8 +15,10 @@ RUN npm install -g create-react-app \
   && cd my-app \
   && npm install \
   && npm install redux --save \
-  && npm install react-redux --save
-RUN chmod +x /my-app
+  && npm install react-redux --save \
+  && usermod -u 1000 app-data \
+  && chown -Rf app-data.app-data /my-app \
+  && chmod +x /my-app
 
 # Prepare app directory
 WORKDIR /my-app
