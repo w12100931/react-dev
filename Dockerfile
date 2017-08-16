@@ -9,28 +9,24 @@ FROM node:latest
 
 MAINTAINER Chung-Lin Wu(w12100931@gmail.com)
 
-RUN groupadd -r pub-user \
-  && useradd -m -r -g pub-user pub-user
-  
-USER pub-user
-
 # Install create-react-app and redux
 RUN npm install -g create-react-app \
-  && cd /usr/src \
+  && mkdir www \
+  && cd www \
   && create-react-app my-app \
   && cd my-app \
   && npm install \
   && npm install redux --save \
   && npm install react-redux --save \
-  && usermod -u 1001 pub-user \
-  && chown -Rf pub-user.pub-user /usr/src/my-app \
-  && chmod +x /usr/src/my-app
+  && usermod -u 1001 www-data \
+  && chown -Rf www-data.www-data /www \
+  && chmod +x /www
 
 # Prepare app directory
-WORKDIR /usr/src/my-app
+WORKDIR /www/my-app
 
 # Mount a volume
-VOLUME /usr/src
+VOLUME /www
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
